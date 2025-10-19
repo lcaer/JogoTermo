@@ -1,3 +1,5 @@
+using System.Data.Common;
+using System.Diagnostics.Eventing.Reader;
 using System.Runtime.ConstrainedExecution;
 using TermoLib;
 using static System.Windows.Forms.LinkLabel;
@@ -15,17 +17,29 @@ namespace TermoApp
         {
             InitializeComponent();
             termo = new Termo();
-            this.KeyPreview = true;
+            btn11.BackColor = Color.DarkGray;
             this.KeyPreview = true;
             this.AcceptButton = btnEnter;
+            this.AcceptButton = btnRight;
+            this.AcceptButton = btnLeft;
             this.ActiveControl = null;
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Enter)
             {
                 btnEnter.PerformClick();
+                return true;
+            }
+            else if (keyData == Keys.Right)
+            {
+                btnRight.PerformClick();
+                return true;
+            }
+            else if (keyData == Keys.Left)
+            {
+                btnLeft.PerformClick();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -62,7 +76,7 @@ namespace TermoApp
                 return;
             }
             termo.ChecaPalavra(palavra);
-            if(termo.validaPalavra(palavra) == false)
+            if (termo.validaPalavra(palavra) == false)
             {
                 MessageBox.Show("Palavra Inválida!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -74,6 +88,7 @@ namespace TermoApp
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
         private Button RetornaBotao(string name)
         {
             return (Button)Controls.Find(name, true)[0];
@@ -97,7 +112,7 @@ namespace TermoApp
 
             var botaoKey = RetornaBotao(nomeBotaoKey);
 
-            if(op == 1)
+            if (op == 1)
             {
                 return botaoTab;
 
@@ -120,7 +135,6 @@ namespace TermoApp
                 MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
                 if (letra.Cor == 'A')
                 {
-                    
                     botaoTab.BackColor = Color.Yellow;
                     botaoKey.BackColor = Color.Yellow;
                 }
@@ -161,10 +175,14 @@ namespace TermoApp
             buttonTabuleiro.Text = "";
 
             coluna--;
+            DestaqueBotao("bwd");
+            if (coluna == 5)
+                buttonTabuleiro.BackColor = Color.DarkGray;
         }
 
         private void TermoApp_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode >= Keys.A && e.KeyCode <= Keys.Z)
             {
                 if (coluna > 5)
@@ -177,20 +195,15 @@ namespace TermoApp
                 buttonTabuleiro.Text = e.KeyCode.ToString();
 
                 coluna++;
+                if (coluna <= 5)
+                    DestaqueBotao("fwd");
+                else if (coluna > 5)
+                    buttonTabuleiro.BackColor = Color.Gainsboro;
+
             }
             else if (e.KeyCode == Keys.Back)
             {
-                if (coluna == 1)
-                    return;
-                var col = coluna - 1;
-
-                var linha = termo.palavraAtual;
-                var nomeButton = $"btn{linha}{col}";
-
-                var buttonTabuleiro = RetornaBotao(nomeButton);
-                buttonTabuleiro.Text = "";
-
-                coluna--;
+                btnDelete.PerformClick();
             }
         }
 
@@ -202,7 +215,7 @@ namespace TermoApp
             {
                 for (col = 1; col <= 5; col++)
                 {
-                    var botaoTab =  baseAtualizar(2, 1, col);
+                    var botaoTab = baseAtualizar(2, 1, col);
                     var botaoKey = baseAtualizar(2, 2, col);
 
                     botaoTab.Text = "";
@@ -214,10 +227,69 @@ namespace TermoApp
                     //{
 
                     //}
-                    
+
                 }
             }
             coluna = 1;
+        }
+
+        private void DestaqueBotao(string direcao)
+        {
+            // Implementar destaque visual para o botão selecionado
+            String botaoNome;
+            Button botao;
+            int col;
+
+            if (coluna > 5)
+                return;
+
+            botaoNome = $"btn{termo.palavraAtual}{coluna}";
+            botao = RetornaBotao(botaoNome);
+            botao.BackColor = Color.DarkGray;
+
+            if (direcao == "fwd")
+            {
+                col = coluna - 1;
+            }
+            else if (direcao == "bwd" & coluna < 5)
+            {
+                col = coluna + 1;
+            }
+            else
+            {
+                col = coluna;
+            }
+
+            botaoNome = $"btn{termo.palavraAtual}{col}";
+            botao = RetornaBotao(botaoNome);
+            botao.BackColor = Color.Gainsboro;
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            if (coluna < 6)
+                coluna++;
+            DestaqueBotao("fwd");
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            if (coluna > 1)
+                coluna--;
+            DestaqueBotao("bwd");
+        }
+
+        private void btnTabuleiro_Click(object sender, EventArgs e)
+        {
+            int col = 1;
+            var button = (Button)sender;
+
+            if (button.Name == $"btn{termo.palavraAtual}{col}"){
+                coluna = col;
+                
+            }
+            
+            
         }
     }
 }

@@ -90,6 +90,8 @@
             btn64 = new Button();
             btn65 = new Button();
             gbTabuleiro = new GroupBox();
+            btnRight = new Button();
+            btnLeft = new Button();
             gbTeclado.SuspendLayout();
             gbTabuleiro.SuspendLayout();
             SuspendLayout();
@@ -467,268 +469,358 @@
             // 
             // btn11
             // 
+            btn11.BackColor = Color.Gainsboro;
+            btn11.BackgroundImageLayout = ImageLayout.None;
+            btn11.FlatStyle = FlatStyle.Flat;
             btn11.Location = new Point(11, 8);
             btn11.Margin = new Padding(3, 2, 3, 2);
             btn11.Name = "btn11";
             btn11.Size = new Size(66, 53);
             btn11.TabIndex = 1;
-            btn11.UseVisualStyleBackColor = true;
+            btn11.UseVisualStyleBackColor = false;
+            btn11.Click += btnTabuleiro_Click;
             // 
             // btn12
             // 
+            btn12.BackColor = Color.Gainsboro;
+            btn12.BackgroundImageLayout = ImageLayout.None;
+            btn12.FlatStyle = FlatStyle.Flat;
             btn12.Location = new Point(82, 8);
             btn12.Margin = new Padding(3, 2, 3, 2);
             btn12.Name = "btn12";
             btn12.Size = new Size(66, 53);
             btn12.TabIndex = 2;
-            btn12.UseVisualStyleBackColor = true;
+            btn12.UseVisualStyleBackColor = false;
             // 
             // btn13
             // 
+            btn13.BackColor = Color.Gainsboro;
+            btn13.BackgroundImageLayout = ImageLayout.None;
+            btn13.FlatStyle = FlatStyle.Flat;
             btn13.Location = new Point(154, 8);
             btn13.Margin = new Padding(3, 2, 3, 2);
             btn13.Name = "btn13";
             btn13.Size = new Size(66, 53);
             btn13.TabIndex = 3;
-            btn13.UseVisualStyleBackColor = true;
+            btn13.UseVisualStyleBackColor = false;
             // 
             // btn14
             // 
+            btn14.BackColor = Color.Gainsboro;
+            btn14.BackgroundImageLayout = ImageLayout.None;
+            btn14.FlatStyle = FlatStyle.Flat;
             btn14.Location = new Point(226, 8);
             btn14.Margin = new Padding(3, 2, 3, 2);
             btn14.Name = "btn14";
             btn14.Size = new Size(66, 53);
             btn14.TabIndex = 4;
-            btn14.UseVisualStyleBackColor = true;
+            btn14.UseVisualStyleBackColor = false;
             // 
             // btn15
             // 
+            btn15.BackColor = Color.Gainsboro;
+            btn15.BackgroundImageLayout = ImageLayout.None;
+            btn15.FlatStyle = FlatStyle.Flat;
             btn15.Location = new Point(298, 8);
             btn15.Margin = new Padding(3, 2, 3, 2);
             btn15.Name = "btn15";
             btn15.Size = new Size(66, 53);
             btn15.TabIndex = 5;
-            btn15.UseVisualStyleBackColor = true;
+            btn15.UseVisualStyleBackColor = false;
             // 
             // btn21
             // 
+            btn21.BackColor = Color.Gainsboro;
+            btn21.BackgroundImageLayout = ImageLayout.None;
+            btn21.FlatStyle = FlatStyle.Flat;
             btn21.Location = new Point(10, 66);
             btn21.Margin = new Padding(3, 2, 3, 2);
             btn21.Name = "btn21";
             btn21.Size = new Size(66, 53);
             btn21.TabIndex = 6;
-            btn21.UseVisualStyleBackColor = true;
+            btn21.UseVisualStyleBackColor = false;
             // 
             // btn22
             // 
+            btn22.BackColor = Color.Gainsboro;
+            btn22.BackgroundImageLayout = ImageLayout.None;
+            btn22.FlatStyle = FlatStyle.Flat;
             btn22.Location = new Point(82, 66);
             btn22.Margin = new Padding(3, 2, 3, 2);
             btn22.Name = "btn22";
             btn22.Size = new Size(66, 53);
             btn22.TabIndex = 7;
-            btn22.UseVisualStyleBackColor = true;
+            btn22.UseVisualStyleBackColor = false;
             // 
             // btn23
             // 
+            btn23.BackColor = Color.Gainsboro;
+            btn23.BackgroundImageLayout = ImageLayout.None;
+            btn23.FlatStyle = FlatStyle.Flat;
             btn23.Location = new Point(154, 66);
             btn23.Margin = new Padding(3, 2, 3, 2);
             btn23.Name = "btn23";
             btn23.Size = new Size(66, 53);
             btn23.TabIndex = 8;
-            btn23.UseVisualStyleBackColor = true;
+            btn23.UseVisualStyleBackColor = false;
             // 
             // btn24
             // 
+            btn24.BackColor = Color.Gainsboro;
+            btn24.BackgroundImageLayout = ImageLayout.None;
+            btn24.FlatStyle = FlatStyle.Flat;
             btn24.Location = new Point(226, 66);
             btn24.Margin = new Padding(3, 2, 3, 2);
             btn24.Name = "btn24";
             btn24.Size = new Size(66, 53);
             btn24.TabIndex = 9;
-            btn24.UseVisualStyleBackColor = true;
+            btn24.UseVisualStyleBackColor = false;
             // 
             // btn25
             // 
+            btn25.BackColor = Color.Gainsboro;
+            btn25.BackgroundImageLayout = ImageLayout.None;
+            btn25.FlatStyle = FlatStyle.Flat;
             btn25.Location = new Point(298, 66);
             btn25.Margin = new Padding(3, 2, 3, 2);
             btn25.Name = "btn25";
             btn25.Size = new Size(66, 53);
             btn25.TabIndex = 10;
-            btn25.UseVisualStyleBackColor = true;
+            btn25.UseVisualStyleBackColor = false;
             // 
             // btn31
             // 
+            btn31.BackColor = Color.Gainsboro;
+            btn31.BackgroundImageLayout = ImageLayout.None;
+            btn31.FlatStyle = FlatStyle.Flat;
             btn31.Location = new Point(10, 124);
             btn31.Margin = new Padding(3, 2, 3, 2);
             btn31.Name = "btn31";
             btn31.Size = new Size(66, 53);
             btn31.TabIndex = 11;
-            btn31.UseVisualStyleBackColor = true;
+            btn31.UseVisualStyleBackColor = false;
             // 
             // btn32
             // 
+            btn32.BackColor = Color.Gainsboro;
+            btn32.BackgroundImageLayout = ImageLayout.None;
+            btn32.FlatStyle = FlatStyle.Flat;
             btn32.Location = new Point(82, 124);
             btn32.Margin = new Padding(3, 2, 3, 2);
             btn32.Name = "btn32";
             btn32.Size = new Size(66, 53);
             btn32.TabIndex = 12;
-            btn32.UseVisualStyleBackColor = true;
+            btn32.UseVisualStyleBackColor = false;
             // 
             // btn33
             // 
+            btn33.BackColor = Color.Gainsboro;
+            btn33.BackgroundImageLayout = ImageLayout.None;
+            btn33.FlatStyle = FlatStyle.Flat;
             btn33.Location = new Point(154, 124);
             btn33.Margin = new Padding(3, 2, 3, 2);
             btn33.Name = "btn33";
             btn33.Size = new Size(66, 53);
             btn33.TabIndex = 13;
-            btn33.UseVisualStyleBackColor = true;
+            btn33.UseVisualStyleBackColor = false;
             // 
             // btn34
             // 
+            btn34.BackColor = Color.Gainsboro;
+            btn34.BackgroundImageLayout = ImageLayout.None;
+            btn34.FlatStyle = FlatStyle.Flat;
             btn34.Location = new Point(226, 124);
             btn34.Margin = new Padding(3, 2, 3, 2);
             btn34.Name = "btn34";
             btn34.Size = new Size(66, 53);
             btn34.TabIndex = 14;
-            btn34.UseVisualStyleBackColor = true;
+            btn34.UseVisualStyleBackColor = false;
             // 
             // btn35
             // 
+            btn35.BackColor = Color.Gainsboro;
+            btn35.BackgroundImageLayout = ImageLayout.None;
+            btn35.FlatStyle = FlatStyle.Flat;
             btn35.Location = new Point(298, 124);
             btn35.Margin = new Padding(3, 2, 3, 2);
             btn35.Name = "btn35";
             btn35.Size = new Size(66, 53);
             btn35.TabIndex = 15;
-            btn35.UseVisualStyleBackColor = true;
+            btn35.UseVisualStyleBackColor = false;
             // 
             // btn41
             // 
+            btn41.BackColor = Color.Gainsboro;
+            btn41.BackgroundImageLayout = ImageLayout.None;
+            btn41.FlatStyle = FlatStyle.Flat;
             btn41.Location = new Point(10, 182);
             btn41.Margin = new Padding(3, 2, 3, 2);
             btn41.Name = "btn41";
             btn41.Size = new Size(66, 53);
             btn41.TabIndex = 16;
-            btn41.UseVisualStyleBackColor = true;
+            btn41.UseVisualStyleBackColor = false;
             // 
             // btn42
             // 
+            btn42.BackColor = Color.Gainsboro;
+            btn42.BackgroundImageLayout = ImageLayout.None;
+            btn42.FlatStyle = FlatStyle.Flat;
             btn42.Location = new Point(82, 182);
             btn42.Margin = new Padding(3, 2, 3, 2);
             btn42.Name = "btn42";
             btn42.Size = new Size(66, 53);
             btn42.TabIndex = 17;
-            btn42.UseVisualStyleBackColor = true;
+            btn42.UseVisualStyleBackColor = false;
             // 
             // btn43
             // 
+            btn43.BackColor = Color.Gainsboro;
+            btn43.BackgroundImageLayout = ImageLayout.None;
+            btn43.FlatStyle = FlatStyle.Flat;
             btn43.Location = new Point(154, 182);
             btn43.Margin = new Padding(3, 2, 3, 2);
             btn43.Name = "btn43";
             btn43.Size = new Size(66, 53);
             btn43.TabIndex = 18;
-            btn43.UseVisualStyleBackColor = true;
+            btn43.UseVisualStyleBackColor = false;
             // 
             // btn44
             // 
+            btn44.BackColor = Color.Gainsboro;
+            btn44.BackgroundImageLayout = ImageLayout.None;
+            btn44.FlatStyle = FlatStyle.Flat;
             btn44.Location = new Point(226, 182);
             btn44.Margin = new Padding(3, 2, 3, 2);
             btn44.Name = "btn44";
             btn44.Size = new Size(66, 53);
             btn44.TabIndex = 19;
-            btn44.UseVisualStyleBackColor = true;
+            btn44.UseVisualStyleBackColor = false;
             // 
             // btn45
             // 
+            btn45.BackColor = Color.Gainsboro;
+            btn45.BackgroundImageLayout = ImageLayout.None;
+            btn45.FlatStyle = FlatStyle.Flat;
             btn45.Location = new Point(298, 182);
             btn45.Margin = new Padding(3, 2, 3, 2);
             btn45.Name = "btn45";
             btn45.Size = new Size(66, 53);
             btn45.TabIndex = 20;
-            btn45.UseVisualStyleBackColor = true;
+            btn45.UseVisualStyleBackColor = false;
             // 
             // btn51
             // 
+            btn51.BackColor = Color.Gainsboro;
+            btn51.BackgroundImageLayout = ImageLayout.None;
+            btn51.FlatStyle = FlatStyle.Flat;
             btn51.Location = new Point(10, 239);
             btn51.Margin = new Padding(3, 2, 3, 2);
             btn51.Name = "btn51";
             btn51.Size = new Size(66, 53);
             btn51.TabIndex = 21;
-            btn51.UseVisualStyleBackColor = true;
+            btn51.UseVisualStyleBackColor = false;
             // 
             // btn52
             // 
+            btn52.BackColor = Color.Gainsboro;
+            btn52.BackgroundImageLayout = ImageLayout.None;
+            btn52.FlatStyle = FlatStyle.Flat;
             btn52.Location = new Point(82, 239);
             btn52.Margin = new Padding(3, 2, 3, 2);
             btn52.Name = "btn52";
             btn52.Size = new Size(66, 53);
             btn52.TabIndex = 22;
-            btn52.UseVisualStyleBackColor = true;
+            btn52.UseVisualStyleBackColor = false;
             // 
             // btn53
             // 
+            btn53.BackColor = Color.Gainsboro;
+            btn53.BackgroundImageLayout = ImageLayout.None;
+            btn53.FlatStyle = FlatStyle.Flat;
             btn53.Location = new Point(154, 239);
             btn53.Margin = new Padding(3, 2, 3, 2);
             btn53.Name = "btn53";
             btn53.Size = new Size(66, 53);
             btn53.TabIndex = 23;
-            btn53.UseVisualStyleBackColor = true;
+            btn53.UseVisualStyleBackColor = false;
             // 
             // btn54
             // 
+            btn54.BackColor = Color.Gainsboro;
+            btn54.BackgroundImageLayout = ImageLayout.None;
+            btn54.FlatStyle = FlatStyle.Flat;
             btn54.Location = new Point(226, 239);
             btn54.Margin = new Padding(3, 2, 3, 2);
             btn54.Name = "btn54";
             btn54.Size = new Size(66, 53);
             btn54.TabIndex = 24;
-            btn54.UseVisualStyleBackColor = true;
+            btn54.UseVisualStyleBackColor = false;
             // 
             // btn55
             // 
+            btn55.BackColor = Color.Gainsboro;
+            btn55.BackgroundImageLayout = ImageLayout.None;
+            btn55.FlatStyle = FlatStyle.Flat;
             btn55.Location = new Point(298, 239);
             btn55.Margin = new Padding(3, 2, 3, 2);
             btn55.Name = "btn55";
             btn55.Size = new Size(66, 53);
             btn55.TabIndex = 25;
-            btn55.UseVisualStyleBackColor = true;
+            btn55.UseVisualStyleBackColor = false;
             // 
             // btn61
             // 
+            btn61.BackColor = Color.Gainsboro;
+            btn61.BackgroundImageLayout = ImageLayout.None;
+            btn61.FlatStyle = FlatStyle.Flat;
             btn61.Location = new Point(10, 297);
             btn61.Margin = new Padding(3, 2, 3, 2);
             btn61.Name = "btn61";
             btn61.Size = new Size(66, 53);
             btn61.TabIndex = 26;
-            btn61.UseVisualStyleBackColor = true;
+            btn61.UseVisualStyleBackColor = false;
             // 
             // btn62
             // 
+            btn62.BackColor = Color.Gainsboro;
+            btn62.BackgroundImageLayout = ImageLayout.None;
+            btn62.FlatStyle = FlatStyle.Flat;
             btn62.Location = new Point(82, 297);
             btn62.Margin = new Padding(3, 2, 3, 2);
             btn62.Name = "btn62";
             btn62.Size = new Size(66, 53);
             btn62.TabIndex = 27;
-            btn62.UseVisualStyleBackColor = true;
+            btn62.UseVisualStyleBackColor = false;
             // 
             // btn63
             // 
+            btn63.BackColor = Color.Gainsboro;
+            btn63.BackgroundImageLayout = ImageLayout.None;
+            btn63.FlatStyle = FlatStyle.Flat;
             btn63.Location = new Point(154, 297);
             btn63.Margin = new Padding(3, 2, 3, 2);
             btn63.Name = "btn63";
             btn63.Size = new Size(66, 53);
             btn63.TabIndex = 28;
-            btn63.UseVisualStyleBackColor = true;
+            btn63.UseVisualStyleBackColor = false;
             // 
             // btn64
             // 
+            btn64.BackColor = Color.Gainsboro;
+            btn64.BackgroundImageLayout = ImageLayout.None;
+            btn64.FlatStyle = FlatStyle.Flat;
             btn64.Location = new Point(226, 297);
             btn64.Margin = new Padding(3, 2, 3, 2);
             btn64.Name = "btn64";
             btn64.Size = new Size(66, 53);
             btn64.TabIndex = 29;
-            btn64.UseVisualStyleBackColor = true;
+            btn64.UseVisualStyleBackColor = false;
             // 
             // btn65
             // 
             btn65.BackColor = Color.Gainsboro;
+            btn65.BackgroundImageLayout = ImageLayout.None;
+            btn65.FlatStyle = FlatStyle.Flat;
             btn65.Location = new Point(298, 297);
             btn65.Margin = new Padding(3, 2, 3, 2);
             btn65.Name = "btn65";
@@ -778,12 +870,34 @@
             gbTabuleiro.TabStop = false;
             gbTabuleiro.Paint += gbPaintBorderEraser;
             // 
+            // btnRight
+            // 
+            btnRight.Location = new Point(464, 396);
+            btnRight.Margin = new Padding(0);
+            btnRight.Name = "btnRight";
+            btnRight.Size = new Size(0, 0);
+            btnRight.TabIndex = 31;
+            btnRight.UseVisualStyleBackColor = true;
+            btnRight.Click += btnRight_Click;
+            // 
+            // btnLeft
+            // 
+            btnLeft.Location = new Point(76, 396);
+            btnLeft.Margin = new Padding(3, 2, 3, 2);
+            btnLeft.Name = "btnLeft";
+            btnLeft.Size = new Size(0, 0);
+            btnLeft.TabIndex = 61;
+            btnLeft.UseVisualStyleBackColor = true;
+            btnLeft.Click += btnLeft_Click;
+            // 
             // TermoApp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(564, 546);
+            Controls.Add(btnLeft);
+            Controls.Add(btnRight);
             Controls.Add(gbTeclado);
             Controls.Add(gbTabuleiro);
             Controls.Add(lblTermo);
@@ -862,5 +976,7 @@
         private Button btn65;
         private GroupBox gbTabuleiro;
         private Button btnReiniciar;
+        private Button btnRight;
+        private Button btnLeft;
     }
 }

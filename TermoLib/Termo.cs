@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace TermoLib
 {
@@ -63,27 +64,46 @@ namespace TermoLib
                 JogoFinalizado = true;
             }
 
-            var palavraTabuleiro = new List<Letra>();
-            char cor;
-            for (int i = 0; i < palavra.Length; i++)
+            bool vp = validaPalavra(palavra);
+
+            if(vp == true)
             {
-                if (palavra[i] == palavraSorteada[i])
+                var palavraTabuleiro = new List<Letra>();
+                char cor;
+                for (int i = 0; i < palavra.Length; i++)
                 {
-                    cor = 'V';
+                    if (palavra[i] == palavraSorteada[i])
+                    {
+                        cor = 'V';
+                    }
+                    else if (palavraSorteada.Contains(palavra[i]))
+                    {
+                        cor = 'A';
+                    }
+                    else
+                    {
+                        cor = 'P';
+                    }
+                    palavraTabuleiro.Add(new Letra(palavra[i], cor));
+                    teclado[palavra[i]] = cor;
                 }
-                else if (palavraSorteada.Contains(palavra[i]))
-                {
-                    cor = 'A';
-                }
-                else
-                {
-                    cor = 'P';
-                }
-                palavraTabuleiro.Add(new Letra(palavra[i], cor));
-                teclado[palavra[i]] = cor;
+                tabuleiro.Add(palavraTabuleiro);
+                palavraAtual++;
             }
-            tabuleiro.Add(palavraTabuleiro);
-            palavraAtual++;
         }
+
+        public bool validaPalavra(string palavra)
+        {
+            bool vp = false;
+            foreach (string p in palavras)
+            {
+                if(p == palavra)
+                {
+                    vp = true;
+                }
+            }
+            return vp;
+        }
+        
     }
 }

@@ -1,6 +1,4 @@
-using System.Runtime.ConstrainedExecution;
 using TermoLib;
-using static System.Windows.Forms.LinkLabel;
 
 namespace TermoApp
 {
@@ -9,19 +7,20 @@ namespace TermoApp
         public Termo termo;
 
         int coluna = 1;
-        int wasRe = 0;
+        int show = 0;
 
         public TermoApp()
         {
             InitializeComponent();
             termo = new Termo();
+            MessageBox.Show(termo.palavraSorteada);
             this.KeyPreview = true;
             this.KeyPreview = true;
             this.AcceptButton = btnEnter;
             this.ActiveControl = null;
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Enter)
             {
@@ -62,7 +61,7 @@ namespace TermoApp
                 return;
             }
             termo.ChecaPalavra(palavra);
-            if(termo.validaPalavra(palavra) == false)
+            if (termo.validaPalavra(palavra) == false)
             {
                 MessageBox.Show("Palavra Inválida!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -97,7 +96,7 @@ namespace TermoApp
 
             var botaoKey = RetornaBotao(nomeBotaoKey);
 
-            if(op == 1)
+            if (op == 1)
             {
                 return botaoTab;
 
@@ -117,24 +116,24 @@ namespace TermoApp
                 var letra = termo.tabuleiro[termo.palavraAtual - 2][col - 1];
                 var botaoTab = baseAtualizar(1, 1, col);
                 var botaoKey = baseAtualizar(1, 2, col);
-                MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
+                //MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
                 if (letra.Cor == 'A')
                 {
-                    
-                    botaoTab.BackColor = Color.Yellow;
-                    botaoKey.BackColor = Color.Yellow;
+
+                    botaoTab.BackColor = Color.FromArgb(255, 252, 218);
+                    botaoKey.BackColor = Color.FromArgb(255, 252, 218);
                 }
                 else if (letra.Cor == 'V')
                 {
-                    botaoTab.BackColor = Color.Green;
-                    botaoKey.BackColor = Color.Green;
+                    botaoTab.BackColor = Color.FromArgb(216, 239, 216);
+                    botaoKey.BackColor = Color.FromArgb(216,239, 216);
                 }
                 else if (letra.Cor == 'P')
                 {
-                    botaoTab.BackColor = Color.Red;
-                    botaoKey.BackColor = Color.Red;
+                    botaoTab.BackColor = Color.LightGray;
+                    botaoKey.BackColor = Color.LightGray;
                 }
-                MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
+                //MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
             }
         }
 
@@ -197,12 +196,11 @@ namespace TermoApp
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             int col, lin;
-            wasRe = 1;
             for (lin = termo.palavraAtual; termo.palavraAtual != 1; termo.palavraAtual--)
             {
                 for (col = 1; col <= 5; col++)
                 {
-                    var botaoTab =  baseAtualizar(2, 1, col);
+                    var botaoTab = baseAtualizar(2, 1, col);
                     var botaoKey = baseAtualizar(2, 2, col);
 
                     botaoTab.Text = "";
@@ -214,10 +212,20 @@ namespace TermoApp
                     //{
 
                     //}
-                    
+
                 }
             }
             coluna = 1;
+        }
+
+        private void btnPlacar_Click(object sender, EventArgs e)
+        {
+            PlacarApp placar = new PlacarApp();
+            if (show == 0)
+            {
+                placar.Show();
+                show = 1;
+            }
         }
     }
 }

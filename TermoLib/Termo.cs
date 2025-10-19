@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
-
-namespace TermoLib
+﻿namespace TermoLib
 {
     public class Letra 
     {
@@ -14,8 +11,6 @@ namespace TermoLib
         public char Caracter;
         public char Cor;
     }
-
-
 
     public class Termo
     {
@@ -97,7 +92,7 @@ namespace TermoLib
             bool vp = false;
             foreach (string p in palavras)
             {
-                if(p == palavra)
+                if (p == palavra)
                 {
                     vp = true;
                 }

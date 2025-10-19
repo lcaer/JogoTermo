@@ -9,6 +9,7 @@ namespace TermoApp
         public Termo termo;
 
         int coluna = 1;
+        int wasRe = 0;
 
         public TermoApp()
         {
@@ -20,7 +21,7 @@ namespace TermoApp
             this.ActiveControl = null;
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) 
         {
             if (keyData == Keys.Enter)
             {
@@ -61,6 +62,11 @@ namespace TermoApp
                 return;
             }
             termo.ChecaPalavra(palavra);
+            if(termo.validaPalavra(palavra) == false)
+            {
+                MessageBox.Show("Palavra Inválida!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             AtualizaTabuleiro();
             coluna = 1;
             if (termo.JogoFinalizado)
@@ -73,17 +79,48 @@ namespace TermoApp
             return (Button)Controls.Find(name, true)[0];
         }
 
+        private Button baseAtualizar(int n, int op, int col)
+        {
+            var nomeBotaoTab = $"btn{termo.palavraAtual - 1}{col}";
+            var botaoTab = RetornaBotao(nomeBotaoTab);
+            var nomeBotaoKey = "";
+            if (n == 1)
+            {
+                var letra = termo.tabuleiro[termo.palavraAtual - 2][col - 1];
+                nomeBotaoKey = $"btn{letra.Caracter}";
+            }
+            if (n == 2)
+            {
+                var letra2 = botaoTab.Text;
+                nomeBotaoKey = $"btn{letra2}";
+            }
+
+            var botaoKey = RetornaBotao(nomeBotaoKey);
+
+            if(op == 1)
+            {
+                return botaoTab;
+
+            }
+            else if (op == 2)
+            {
+                return botaoKey;
+            }
+
+            return null;
+        }
+
         private void AtualizaTabuleiro()
         {
             for (int col = 1; col <= 5; col++)
             {
                 var letra = termo.tabuleiro[termo.palavraAtual - 2][col - 1];
-                var nomeBotaoTab = $"btn{termo.palavraAtual - 1}{col}";
-                var botaoTab = RetornaBotao(nomeBotaoTab);
-                var nomeBotaoKey = $"btn{letra.Caracter}";
-                var botaoKey = RetornaBotao(nomeBotaoKey);
+                var botaoTab = baseAtualizar(1, 1, col);
+                var botaoKey = baseAtualizar(1, 2, col);
+                MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
                 if (letra.Cor == 'A')
                 {
+                    
                     botaoTab.BackColor = Color.Yellow;
                     botaoKey.BackColor = Color.Yellow;
                 }
@@ -92,11 +129,12 @@ namespace TermoApp
                     botaoTab.BackColor = Color.Green;
                     botaoKey.BackColor = Color.Green;
                 }
-                else
+                else if (letra.Cor == 'P')
                 {
                     botaoTab.BackColor = Color.Red;
                     botaoKey.BackColor = Color.Red;
                 }
+                MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
             }
         }
 
@@ -159,15 +197,14 @@ namespace TermoApp
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             int col, lin;
+            wasRe = 1;
             for (lin = termo.palavraAtual; termo.palavraAtual != 1; termo.palavraAtual--)
             {
                 for (col = 1; col <= 5; col++)
                 {
-                    var nomeBotaoTab = $"btn{termo.palavraAtual - 1}{col}";
-                    var botaoTab = RetornaBotao(nomeBotaoTab);
-                    var letra = botaoTab.Text;
-                    var nomeBotaoKey = $"btn{letra}";
-                    var botaoKey = RetornaBotao(nomeBotaoKey);
+                    var botaoTab =  baseAtualizar(2, 1, col);
+                    var botaoKey = baseAtualizar(2, 2, col);
+
                     botaoTab.Text = "";
                     botaoTab.BackColor = Color.Gainsboro;
                     botaoKey.BackColor = Color.Gainsboro;

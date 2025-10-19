@@ -1,32 +1,22 @@
-﻿using TermoLib;
+﻿using System.Windows.Forms;
+using TermoLib;
 
 namespace TermoApp
 {
     public partial class PlacarApp : Form
     {
-        int games = 0;
-        int victories = 0;
-        int streak = 0;
+        public Termo termo;
         public PlacarApp()
         {
             InitializeComponent();
+            termo = new Termo();
             AtualizarPlacar();
         }
 
         public void AtualizarPlacar()
         {
-
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
+            termo.contaJogos();
+            MessageBox.Show("Gm: " + termo.games);
         }
     }
 }

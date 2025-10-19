@@ -1,8 +1,4 @@
-using System.Data.Common;
-using System.Diagnostics.Eventing.Reader;
-using System.Runtime.ConstrainedExecution;
 using TermoLib;
-using static System.Windows.Forms.LinkLabel;
 
 namespace TermoApp
 {
@@ -11,13 +7,14 @@ namespace TermoApp
         public Termo termo;
 
         int coluna = 1;
-        int wasRe = 0;
+        int show = 0;
 
         public TermoApp()
         {
             InitializeComponent();
             termo = new Termo();
-            btn11.BackColor = Color.DarkGray;
+            MessageBox.Show(termo.palavraSorteada);
+            btn11.BackColor = Color.MistyRose;
             this.KeyPreview = true;
             this.AcceptButton = btnEnter;
             this.AcceptButton = btnRight;
@@ -132,23 +129,24 @@ namespace TermoApp
                 var letra = termo.tabuleiro[termo.palavraAtual - 2][col - 1];
                 var botaoTab = baseAtualizar(1, 1, col);
                 var botaoKey = baseAtualizar(1, 2, col);
-                MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
+                //MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
                 if (letra.Cor == 'A')
                 {
-                    botaoTab.BackColor = Color.Yellow;
-                    botaoKey.BackColor = Color.Yellow;
+
+                    botaoTab.BackColor = Color.FromArgb(255, 252, 218);
+                    botaoKey.BackColor = Color.FromArgb(255, 252, 218);
                 }
                 else if (letra.Cor == 'V')
                 {
-                    botaoTab.BackColor = Color.Green;
-                    botaoKey.BackColor = Color.Green;
+                    botaoTab.BackColor = Color.FromArgb(216, 239, 216);
+                    botaoKey.BackColor = Color.FromArgb(216,239, 216);
                 }
                 else if (letra.Cor == 'P')
                 {
-                    botaoTab.BackColor = Color.Red;
-                    botaoKey.BackColor = Color.Red;
+                    botaoTab.BackColor = Color.LightGray;
+                    botaoKey.BackColor = Color.LightGray;
                 }
-                MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
+                //MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
             }
         }
 
@@ -177,7 +175,7 @@ namespace TermoApp
             coluna--;
             DestaqueBotao("bwd");
             if (coluna == 5)
-                buttonTabuleiro.BackColor = Color.DarkGray;
+                buttonTabuleiro.BackColor = Color.FromArgb(252, 215, 194); ;
         }
 
         private void TermoApp_KeyDown(object sender, KeyEventArgs e)
@@ -198,7 +196,7 @@ namespace TermoApp
                 if (coluna <= 5)
                     DestaqueBotao("fwd");
                 else if (coluna > 5)
-                    buttonTabuleiro.BackColor = Color.Gainsboro;
+                    buttonTabuleiro.BackColor = Color.MistyRose;
 
             }
             else if (e.KeyCode == Keys.Back)
@@ -210,7 +208,6 @@ namespace TermoApp
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             int col, lin;
-            wasRe = 1;
             for (lin = termo.palavraAtual; termo.palavraAtual != 1; termo.palavraAtual--)
             {
                 for (col = 1; col <= 5; col++)
@@ -219,8 +216,8 @@ namespace TermoApp
                     var botaoKey = baseAtualizar(2, 2, col);
 
                     botaoTab.Text = "";
-                    botaoTab.BackColor = Color.Gainsboro;
-                    botaoKey.BackColor = Color.Gainsboro;
+                    botaoTab.BackColor = Color.MistyRose;
+                    botaoKey.BackColor = Color.MistyRose;
                     termo.SorteiaPalavra();
                     termo.JogoFinalizado = false;
                     //if ()
@@ -231,6 +228,16 @@ namespace TermoApp
                 }
             }
             coluna = 1;
+        }
+
+        private void btnPlacar_Click(object sender, EventArgs e)
+        {
+            PlacarApp placar = new PlacarApp();
+            if (show == 0)
+            {
+                placar.Show();
+                show = 1;
+            }
         }
 
         private void DestaqueBotao(string direcao)
@@ -245,7 +252,7 @@ namespace TermoApp
 
             botaoNome = $"btn{termo.palavraAtual}{coluna}";
             botao = RetornaBotao(botaoNome);
-            botao.BackColor = Color.DarkGray;
+            botao.BackColor = Color.FromArgb(252, 215, 194);
 
             if (direcao == "fwd")
             {
@@ -262,7 +269,7 @@ namespace TermoApp
 
             botaoNome = $"btn{termo.palavraAtual}{col}";
             botao = RetornaBotao(botaoNome);
-            botao.BackColor = Color.Gainsboro;
+            botao.BackColor = Color.MistyRose;
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -286,10 +293,7 @@ namespace TermoApp
 
             if (button.Name == $"btn{termo.palavraAtual}{col}"){
                 coluna = col;
-                
             }
-            
-            
         }
     }
 }

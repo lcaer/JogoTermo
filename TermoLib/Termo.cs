@@ -40,6 +40,7 @@
             }
         }
 
+
         public void CarregaPalavras(string fileName)
         {
             palavras = File.ReadAllLines(fileName).ToList();

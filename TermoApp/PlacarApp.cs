@@ -10,6 +10,9 @@ namespace TermoApp
         {
             InitializeComponent();
             placar = new Placar();
+            btnGames.Text = placar.games.ToString();
+            MessageBox.Show("games = " + placar.games.ToString());
+            MessageBox.Show("btn games = " + btnGames.Text);
         }
        
     }

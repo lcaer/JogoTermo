@@ -20,6 +20,12 @@
         public Dictionary<char, char> teclado;
         public int palavraAtual;
         public bool JogoFinalizado;
+        public int games; //contagem total de jogos
+        public int victories; // contagem total de vitórias
+        public int loses; // contagem total de derrotas
+        public int streak; //contagem de vitórias seguidas
+        //public int maxStreak; // maior contagem de vitórias seguidas
+        public int[] places; //vitórias (ou derrotas) em cada uma das linhas
 
         public Termo() {
             CarregaPalavras("Palavras.txt");
@@ -27,7 +33,14 @@
             palavraAtual = 1;
             JogoFinalizado = false;
             tabuleiro = new List<List<Letra>>();
-            teclado = new Dictionary<char, char>(); 
+            teclado = new Dictionary<char, char>();
+
+            games = 0; 
+            loses = 0;
+            streak = 0;
+            //maxStreak = 0; 
+            places = [0, 0, 0, 0, 0, 0, 0];
+
             for(int i = 65; i <= 90; i++)//65 - 90 Tabela ASCII (letras maíusculas)
             {
                 /*
@@ -101,5 +114,13 @@
             return vp;
         }
         
+        public void contaJogos()
+        {
+            if(JogoFinalizado == true)
+            {
+                victories++;
+            }
+                games++;
+        }
     }
 }

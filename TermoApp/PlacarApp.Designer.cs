@@ -60,7 +60,7 @@
             lblPlacar.FlatStyle = FlatStyle.Flat;
             lblPlacar.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPlacar.ForeColor = Color.FromArgb(130, 100, 110);
-            lblPlacar.Location = new Point(120, 9);
+            lblPlacar.Location = new Point(115, 21);
             lblPlacar.Name = "lblPlacar";
             lblPlacar.Size = new Size(175, 54);
             lblPlacar.TabIndex = 1;
@@ -161,7 +161,6 @@
             lblT1.TabIndex = 18;
             lblT1.Text = "1";
             lblT1.TextAlign = ContentAlignment.MiddleCenter;
-            lblT1.Click += label1_Click;
             // 
             // lblT2
             // 
@@ -263,7 +262,6 @@
             btnP1.Size = new Size(32, 33);
             btnP1.TabIndex = 27;
             btnP1.UseVisualStyleBackColor = false;
-            btnP1.Click += button4_Click;
             // 
             // btnP2
             // 

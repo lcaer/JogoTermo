@@ -13,13 +13,38 @@ namespace TermoApp
         {
             InitializeComponent();
             termo = new Termo();
+            DisableButton();
             MessageBox.Show(termo.palavraSorteada);
-            btn11.BackColor = Color.MistyRose;
+            btn11.BackColor = Color.FromArgb(252, 215, 194);
             this.KeyPreview = true;
             this.AcceptButton = btnEnter;
             this.AcceptButton = btnRight;
             this.AcceptButton = btnLeft;
             this.ActiveControl = null;
+        }
+
+        public void DisableButton()
+        {
+            int col, linha;
+            for (col = 1; col <= 5; col++)
+            {
+                for (linha = termo.palavraAtual + 1; linha <= 6; linha++)
+                {
+                    var nomeBotaoTab = $"btn{linha}{col}";
+                    var botaoTab = RetornaBotao(nomeBotaoTab);
+                    botaoTab.Enabled = false;
+                }
+            }
+        }
+        public void EnableButton()
+        {
+            int col;
+            for (col = 1; col <= 5; col++)
+            {
+                var nomeBotaoTab = $"btn{termo.palavraAtual}{col}";
+                var botaoTab = RetornaBotao(nomeBotaoTab);
+                botaoTab.Enabled = true;
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -80,6 +105,7 @@ namespace TermoApp
             }
             AtualizaTabuleiro();
             coluna = 1;
+            EnableButton();
             if (termo.JogoFinalizado)
             {
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -288,11 +314,15 @@ namespace TermoApp
 
         private void btnTabuleiro_Click(object sender, EventArgs e)
         {
-            int col = 1;
             var button = (Button)sender;
-
-            if (button.Name == $"btn{termo.palavraAtual}{col}"){
-                coluna = col;
+            for(int col = 1; col <=5; col++)
+            {
+                var nomeBotao = $"btn{termo.palavraAtual}{col}";
+                if (nomeBotao == button.Name)
+                {
+                    button.BackColor = Color.FromArgb(252, 215, 194);
+                    coluna =col;
+                }
             }
         }
     }

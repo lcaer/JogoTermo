@@ -5,18 +5,12 @@ namespace TermoApp
 {
     public partial class PlacarApp : Form
     {
-        public Termo termo;
+        public Placar placar;
         public PlacarApp()
         {
             InitializeComponent();
-            termo = new Termo();
-            AtualizarPlacar();
+            placar = new Placar();
         }
-
-        public void AtualizarPlacar()
-        {
-            termo.contaJogos();
-            MessageBox.Show("Gm: " + termo.games);
-        }
+       
     }
 }

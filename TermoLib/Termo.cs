@@ -40,7 +40,7 @@
                 teclado.Add((char)i, 'C');
             }
         }
-
+        
 
         public void CarregaPalavras(string fileName)
         {

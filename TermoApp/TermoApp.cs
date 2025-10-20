@@ -1,4 +1,5 @@
 using TermoLib;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TermoApp
 {
@@ -111,7 +112,7 @@ namespace TermoApp
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
+        
         private Button RetornaBotao(string name)
         {
             return (Button)Controls.Find(name, true)[0];
@@ -187,21 +188,58 @@ namespace TermoApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            //if(coluna == 1)
+                //return;
+
+            int col = coluna;
+            Button button = (Button)sender;
+            Button buttonTabuleiro;
+            int linha;
+            String nomeButton;
+
+            if (coluna > 5)
+            {
+                col = coluna - 1;
+                linha = termo.palavraAtual;
+                nomeButton = $"btn{linha}{col}";
+
+                buttonTabuleiro = RetornaBotao(nomeButton);
+            }
+            else
+            {
+                linha = termo.palavraAtual;
+                nomeButton = $"btn{linha}{col}";
+
+                buttonTabuleiro = RetornaBotao(nomeButton);
+            }
+                
+
             if (coluna == 1)
-                return;
-            var col = coluna - 1;
+            {
+                col = coluna;
+                nomeButton = $"btn{linha}{col}";
+                buttonTabuleiro = RetornaBotao(nomeButton);
+                buttonTabuleiro.Text = "";
+            }
+            else if(buttonTabuleiro.Text == "" || coluna > 5)
+            {
+                col = coluna - 1;
+                nomeButton = $"btn{linha}{col}";
+                buttonTabuleiro = RetornaBotao(nomeButton);
+                buttonTabuleiro.Text = "";
+                coluna--;
+            }
+            else if (buttonTabuleiro.Text != "")
+            {
+                col = coluna;
+                nomeButton = $"btn{linha}{col}";
+                buttonTabuleiro = RetornaBotao(nomeButton);
+                buttonTabuleiro.Text = "";
+            }
 
-            var button = (Button)sender;
-            var linha = termo.palavraAtual;
-            var nomeButton = $"btn{linha}{col}";
-
-            var buttonTabuleiro = RetornaBotao(nomeButton);
-            buttonTabuleiro.Text = "";
-
-            coluna--;
-            DestaqueBotao("bwd");
+                DestaqueBotao("bwd");
             if (coluna == 5)
-                buttonTabuleiro.BackColor = Color.FromArgb(252, 215, 194); ;
+                buttonTabuleiro.BackColor = Color.FromArgb(252, 215, 194);
         }
 
         private void TermoApp_KeyDown(object sender, KeyEventArgs e)
@@ -211,6 +249,8 @@ namespace TermoApp
             {
                 if (coluna > 5)
                     return;
+
+                //MessageBox.Show(coluna.ToString());
 
                 var linha = termo.palavraAtual;
                 var nomeButton = $"btn{linha}{coluna}";
@@ -240,17 +280,11 @@ namespace TermoApp
                 {
                     var botaoTab = baseAtualizar(2, 1, col);
                     var botaoKey = baseAtualizar(2, 2, col);
-
                     botaoTab.Text = "";
                     botaoTab.BackColor = Color.MistyRose;
                     botaoKey.BackColor = Color.MistyRose;
                     termo.SorteiaPalavra();
                     termo.JogoFinalizado = false;
-                    //if ()
-                    //{
-
-                    //}
-
                 }
             }
             coluna = 1;
@@ -318,10 +352,12 @@ namespace TermoApp
             for(int col = 1; col <=5; col++)
             {
                 var nomeBotao = $"btn{termo.palavraAtual}{col}";
+                var botao = RetornaBotao(nomeBotao);
+                botao.BackColor = Color.MistyRose;
                 if (nomeBotao == button.Name)
                 {
                     button.BackColor = Color.FromArgb(252, 215, 194);
-                    coluna =col;
+                    coluna = col;
                 }
             }
         }

@@ -104,15 +104,25 @@ namespace TermoApp
                 MessageBox.Show("Palavra Inválida!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            AtualizaTabuleiro();
-            coluna = 1;
-            EnableButton();
+            
             if (termo.JogoFinalizado)
             {
+                AtualizaTabuleiro();
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
+            AtualizaTabuleiro();
+            
+            if (termo.palavraAtual > 6)
+            {
+                AtualizaTabuleiro();
+                MessageBox.Show("Não foi dessa vez!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            EnableButton();
+            coluna = 1;
         }
-        
+
         private Button RetornaBotao(string name)
         {
             return (Button)Controls.Find(name, true)[0];
@@ -166,7 +176,7 @@ namespace TermoApp
                 else if (letra.Cor == 'V')
                 {
                     botaoTab.BackColor = Color.FromArgb(216, 239, 216);
-                    botaoKey.BackColor = Color.FromArgb(216,239, 216);
+                    botaoKey.BackColor = Color.FromArgb(216, 239, 216);
                 }
                 else if (letra.Cor == 'P')
                 {
@@ -189,7 +199,7 @@ namespace TermoApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //if(coluna == 1)
-                //return;
+            //return;
 
             int col = coluna;
             Button button = (Button)sender;
@@ -212,7 +222,7 @@ namespace TermoApp
 
                 buttonTabuleiro = RetornaBotao(nomeButton);
             }
-                
+
 
             if (coluna == 1)
             {
@@ -221,7 +231,7 @@ namespace TermoApp
                 buttonTabuleiro = RetornaBotao(nomeButton);
                 buttonTabuleiro.Text = "";
             }
-            else if(buttonTabuleiro.Text == "" || coluna > 5)
+            else if (buttonTabuleiro.Text == "" || coluna > 5)
             {
                 col = coluna - 1;
                 nomeButton = $"btn{linha}{col}";
@@ -237,7 +247,7 @@ namespace TermoApp
                 buttonTabuleiro.Text = "";
             }
 
-                DestaqueBotao("bwd");
+            DestaqueBotao("bwd");
             if (coluna == 5)
                 buttonTabuleiro.BackColor = Color.FromArgb(252, 215, 194);
         }
@@ -349,7 +359,7 @@ namespace TermoApp
         private void btnTabuleiro_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            for(int col = 1; col <=5; col++)
+            for (int col = 1; col <= 5; col++)
             {
                 var nomeBotao = $"btn{termo.palavraAtual}{col}";
                 var botao = RetornaBotao(nomeBotao);

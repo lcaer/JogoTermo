@@ -60,52 +60,7 @@ namespace TermoLib
             var index = rd.Next(0,palavras.Count()-1);
             palavraSorteada = palavras[index];
         }
-
         public void ChecaPalavra(string palavra)
-        {
-            if (palavra == palavraSorteada || cont == 25)
-            {
-                JogoFinalizado = true;
-            }
-
-            bool vp = validaPalavra(palavra);
-
-            if(vp == true)
-            {
-               
-                var palavraTabuleiro = new List<Letra>();
-                char cor;
-                for (int i = 0; i < palavra.Length; i++)
-                {
-                    if (palavraSorteada.Distinct().Count() > palavraSorteada.Length)//tem letras repitidas
-                    {
-                        var letraRepetida = palavraSorteada.GroupBy(c => c)
-                           .Where(g => g.Count() > 1)
-                           .FirstOrDefault();
-
-                        
-                    }
-
-                    if (palavra[i] == palavraSorteada[i])
-                    {
-                        cor = 'V';
-                    }
-                    else if (palavraSorteada.Contains(palavra[i]))
-                    {
-                        cor = 'A';
-                    }
-                    else
-                    {
-                        cor = 'P';
-                    }
-                    palavraTabuleiro.Add(new Letra(palavra[i], cor));
-                    teclado[palavra[i]] = cor;
-                }
-                tabuleiro.Add(palavraTabuleiro);
-                palavraAtual++;
-            }
-        }
-        public void ChecaPalavraV2(string palavra)
         {
             if (palavra == palavraSorteada)
             {

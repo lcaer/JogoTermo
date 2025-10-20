@@ -1,14 +1,11 @@
 using TermoLib;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TermoApp
 {
     public partial class TermoApp : Form
     {
         public Termo termo;
-
         int coluna = 1;
-        int show = 0;
 
         public TermoApp()
         {
@@ -293,21 +290,22 @@ namespace TermoApp
                     botaoTab.Text = "";
                     botaoTab.BackColor = Color.MistyRose;
                     botaoKey.BackColor = Color.MistyRose;
-                    termo.SorteiaPalavra();
-                    termo.JogoFinalizado = false;
+
                 }
             }
+            termo.SorteiaPalavra();
+            termo.tabuleiro.Clear();
+            termo.teclado.Clear();
+            DisableButton();
+            MessageBox.Show(termo.palavraSorteada);
+            termo.JogoFinalizado = false;
             coluna = 1;
         }
 
         private void btnPlacar_Click(object sender, EventArgs e)
         {
             PlacarApp placar = new PlacarApp();
-            if (show == 0)
-            {
-                placar.Show();
-                show = 1;
-            }
+            placar.ShowDialog();
         }
 
         private void DestaqueBotao(string direcao)

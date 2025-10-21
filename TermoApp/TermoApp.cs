@@ -319,7 +319,6 @@ namespace TermoApp
         {
             PlacarApp placar = new PlacarApp();
             placar.ShowDialog();
-            click.Play();
         }
 
         private void DestaqueBotao(string direcao)

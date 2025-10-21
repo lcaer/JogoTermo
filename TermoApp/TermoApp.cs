@@ -6,16 +6,18 @@ namespace TermoApp
     public partial class TermoApp : Form
     {
         public Termo termo;
+        public Placar placar;
         int coluna = 1;
-        SoundPlayer fail = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\fail-234710.wav");
-        SoundPlayer win = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\magic-ascend-3-259526.wav");
-        SoundPlayer click = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\click-234708.wav");
+        SoundPlayer fail = new SoundPlayer(Properties.Resources.fail);
+        SoundPlayer win = new SoundPlayer(Properties.Resources.win);
+        SoundPlayer click = new SoundPlayer(Properties.Resources.click);
 
 
         public TermoApp()
         {
             InitializeComponent();
             termo = new Termo();
+            placar = new Placar();
             DisableButton();
             MessageBox.Show(termo.palavraSorteada);
             btn11.BackColor = Color.FromArgb(252, 215, 194);
@@ -318,8 +320,9 @@ namespace TermoApp
         private void btnPlacar_Click(object sender, EventArgs e)
         {
             PlacarApp placar = new PlacarApp();
-            placar.ShowDialog();
             click.Play();
+            placar.ShowDialog();
+            
         }
 
         private void DestaqueBotao(string direcao)

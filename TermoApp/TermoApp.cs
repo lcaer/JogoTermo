@@ -1,4 +1,5 @@
 using TermoLib;
+using System.Media;
 
 namespace TermoApp
 {
@@ -6,6 +7,10 @@ namespace TermoApp
     {
         public Termo termo;
         int coluna = 1;
+        SoundPlayer fail = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\fail-234710.wav");
+        SoundPlayer win = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\magic-ascend-3-259526.wav");
+        SoundPlayer click = new SoundPlayer("C:\\Users\\SoneJojo\\Desktop\\IFSP\\POEV\\JogoTermo\\sounds\\click-234708.wav");
+
 
         public TermoApp()
         {
@@ -70,6 +75,8 @@ namespace TermoApp
             if (coluna > 5)
                 return;
 
+            click.Play();
+
             var button = (Button)sender;
             var linha = termo.palavraAtual;
             var nomeButton = $"btn{linha}{coluna}";
@@ -105,14 +112,16 @@ namespace TermoApp
             if (termo.JogoFinalizado)
             {
                 AtualizaTabuleiro();
+                win.Play();
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             AtualizaTabuleiro();
-            
+            click.Play();
             if (termo.palavraAtual > 6)
             {
                 AtualizaTabuleiro();
+                fail.Play();
                 MessageBox.Show("Não foi dessa vez!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -243,6 +252,7 @@ namespace TermoApp
                 buttonTabuleiro = RetornaBotao(nomeButton);
                 buttonTabuleiro.Text = "";
             }
+            click.Play();
 
             DestaqueBotao("bwd");
             if (coluna == 5)
@@ -271,6 +281,8 @@ namespace TermoApp
                 else if (coluna > 5)
                     buttonTabuleiro.BackColor = Color.MistyRose;
 
+                click.Play();
+
             }
             else if (e.KeyCode == Keys.Back)
             {
@@ -293,6 +305,7 @@ namespace TermoApp
 
                 }
             }
+            click.Play();
             termo.SorteiaPalavra();
             termo.tabuleiro.Clear();
             termo.teclado.Clear();
@@ -306,6 +319,7 @@ namespace TermoApp
         {
             PlacarApp placar = new PlacarApp();
             placar.ShowDialog();
+            click.Play();
         }
 
         private void DestaqueBotao(string direcao)

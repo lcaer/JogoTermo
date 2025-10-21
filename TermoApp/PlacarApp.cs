@@ -30,16 +30,20 @@ namespace TermoApp
             btnP6.Text = placar.places[5].ToString();
             btnPL.Text = placar.places[6].ToString();
         }
-
-        public void Vitoria()
+        public void Loss()
         {
-            //termo.JogoFinalizado =true;
-            if (termo.JogoFinalizado)
-            {
-                placar.games++;
-                placar.victories++;
-                placar.streak++;
-            }
+            placar.places[6]++;
+            placar.games++;
+            placar.streak = 0;
+            AtualizaPlacar();
+        }
+
+        public void Victory(int pos)
+        {
+            placar.places[pos-1]++;
+            placar.games++;
+            placar.victories++;
+            placar.streak++;
             AtualizaPlacar();
         }
     }

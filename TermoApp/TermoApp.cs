@@ -115,7 +115,7 @@ namespace TermoApp
             
             if (termo.JogoFinalizado)
             {
-                placarapp.Vitoria();
+                placarapp.Victory(termo.palavraAtual);
                 AtualizaTabuleiro();
                 win.Play();
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -125,6 +125,7 @@ namespace TermoApp
             click.Play();
             if (termo.palavraAtual > 6)
             {
+                placarapp.Loss();
                 AtualizaTabuleiro();
                 fail.Play();
                 MessageBox.Show("Não foi dessa vez!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

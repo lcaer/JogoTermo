@@ -7,17 +7,18 @@ namespace TermoApp
     {
         public Termo termo;
         public Placar placar;
+        public PlacarApp placarapp ;
         int coluna = 1;
         SoundPlayer fail = new SoundPlayer(Properties.Resources.fail);
         SoundPlayer win = new SoundPlayer(Properties.Resources.win);
         SoundPlayer click = new SoundPlayer(Properties.Resources.click);
-
 
         public TermoApp()
         {
             InitializeComponent();
             termo = new Termo();
             placar = new Placar();
+            placarapp = new PlacarApp();
             DisableButton();
             MessageBox.Show(termo.palavraSorteada);
             btn11.BackColor = Color.FromArgb(252, 215, 194);
@@ -41,6 +42,7 @@ namespace TermoApp
                 }
             }
         }
+
         public void EnableButton()
         {
             int col;
@@ -113,6 +115,7 @@ namespace TermoApp
             
             if (termo.JogoFinalizado)
             {
+                placarapp.Vitoria();
                 AtualizaTabuleiro();
                 win.Play();
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -294,6 +297,9 @@ namespace TermoApp
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
+            placarapp.AtualizaPlacar();
+            MessageBox.Show("games = " + placar.games.ToString());
+            //placarapp.AtualizaPlacar();
             int col, lin;
             for (lin = termo.palavraAtual; termo.palavraAtual != 1; termo.palavraAtual--)
             {
@@ -312,17 +318,16 @@ namespace TermoApp
             termo.tabuleiro.Clear();
             termo.teclado.Clear();
             DisableButton();
-            MessageBox.Show(termo.palavraSorteada);
+            //MessageBox.Show(termo.palavraSorteada);
             termo.JogoFinalizado = false;
             coluna = 1;
         }
 
         private void btnPlacar_Click(object sender, EventArgs e)
         {
-            PlacarApp placar = new PlacarApp();
+            placar.contagemJogos();
             click.Play();
-            placar.ShowDialog();
-            
+            placarapp.ShowDialog();
         }
 
         private void DestaqueBotao(string direcao)

@@ -49,7 +49,7 @@
             btnP3 = new Button();
             btnP4 = new Button();
             btnP5 = new Button();
-            btnPL = new Button();
+            btnP7 = new Button();
             btnP6 = new Button();
             lblT6 = new Label();
             SuspendLayout();
@@ -60,9 +60,9 @@
             lblPlacar.FlatStyle = FlatStyle.Flat;
             lblPlacar.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPlacar.ForeColor = Color.FromArgb(130, 100, 110);
-            lblPlacar.Location = new Point(115, 21);
+            lblPlacar.Location = new Point(101, 16);
             lblPlacar.Name = "lblPlacar";
-            lblPlacar.Size = new Size(175, 54);
+            lblPlacar.Size = new Size(144, 45);
             lblPlacar.TabIndex = 1;
             lblPlacar.Text = "PLACAR";
             // 
@@ -72,9 +72,9 @@
             lblGames.FlatStyle = FlatStyle.Flat;
             lblGames.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGames.ForeColor = Color.FromArgb(130, 100, 110);
-            lblGames.Location = new Point(37, 165);
+            lblGames.Location = new Point(32, 124);
             lblGames.Name = "lblGames";
-            lblGames.Size = new Size(56, 23);
+            lblGames.Size = new Size(48, 19);
             lblGames.TabIndex = 2;
             lblGames.Text = "Jogos";
             // 
@@ -84,9 +84,9 @@
             lblVictories.FlatStyle = FlatStyle.Flat;
             lblVictories.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblVictories.ForeColor = Color.FromArgb(130, 100, 110);
-            lblVictories.Location = new Point(158, 165);
+            lblVictories.Location = new Point(138, 124);
             lblVictories.Name = "lblVictories";
-            lblVictories.Size = new Size(96, 23);
+            lblVictories.Size = new Size(81, 19);
             lblVictories.TabIndex = 3;
             lblVictories.Text = "de Vitórias";
             // 
@@ -96,9 +96,9 @@
             lblStreak.FlatStyle = FlatStyle.Flat;
             lblStreak.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblStreak.ForeColor = Color.FromArgb(130, 100, 110);
-            lblStreak.Location = new Point(320, 165);
+            lblStreak.Location = new Point(280, 124);
             lblStreak.Name = "lblStreak";
-            lblStreak.Size = new Size(62, 23);
+            lblStreak.Size = new Size(52, 19);
             lblStreak.TabIndex = 4;
             lblStreak.Text = "Streak";
             // 
@@ -110,9 +110,10 @@
             btnGames.FlatStyle = FlatStyle.Flat;
             btnGames.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             btnGames.ForeColor = Color.FromArgb(130, 100, 110);
-            btnGames.Location = new Point(21, 78);
+            btnGames.Location = new Point(18, 58);
+            btnGames.Margin = new Padding(3, 2, 3, 2);
             btnGames.Name = "btnGames";
-            btnGames.Size = new Size(94, 84);
+            btnGames.Size = new Size(82, 63);
             btnGames.TabIndex = 5;
             btnGames.Text = "0";
             btnGames.UseVisualStyleBackColor = false;
@@ -125,9 +126,10 @@
             btnVictories.FlatStyle = FlatStyle.Flat;
             btnVictories.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             btnVictories.ForeColor = Color.FromArgb(130, 100, 110);
-            btnVictories.Location = new Point(158, 78);
+            btnVictories.Location = new Point(138, 58);
+            btnVictories.Margin = new Padding(3, 2, 3, 2);
             btnVictories.Name = "btnVictories";
-            btnVictories.Size = new Size(94, 84);
+            btnVictories.Size = new Size(82, 63);
             btnVictories.TabIndex = 6;
             btnVictories.Text = "0";
             btnVictories.UseVisualStyleBackColor = false;
@@ -140,9 +142,10 @@
             btnStreak.FlatStyle = FlatStyle.Flat;
             btnStreak.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             btnStreak.ForeColor = Color.FromArgb(130, 100, 110);
-            btnStreak.Location = new Point(302, 78);
+            btnStreak.Location = new Point(264, 58);
+            btnStreak.Margin = new Padding(3, 2, 3, 2);
             btnStreak.Name = "btnStreak";
-            btnStreak.Size = new Size(94, 84);
+            btnStreak.Size = new Size(82, 63);
             btnStreak.TabIndex = 7;
             btnStreak.Text = "0";
             btnStreak.UseVisualStyleBackColor = false;
@@ -154,10 +157,10 @@
             lblT1.FlatStyle = FlatStyle.Flat;
             lblT1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT1.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT1.Location = new Point(22, 210);
-            lblT1.MinimumSize = new Size(33, 33);
+            lblT1.Location = new Point(19, 158);
+            lblT1.MinimumSize = new Size(29, 25);
             lblT1.Name = "lblT1";
-            lblT1.Size = new Size(33, 33);
+            lblT1.Size = new Size(29, 25);
             lblT1.TabIndex = 18;
             lblT1.Text = "1";
             lblT1.TextAlign = ContentAlignment.MiddleCenter;
@@ -169,10 +172,10 @@
             lblT2.FlatStyle = FlatStyle.Flat;
             lblT2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT2.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT2.Location = new Point(22, 249);
-            lblT2.MinimumSize = new Size(33, 33);
+            lblT2.Location = new Point(19, 187);
+            lblT2.MinimumSize = new Size(29, 25);
             lblT2.Name = "lblT2";
-            lblT2.Size = new Size(33, 33);
+            lblT2.Size = new Size(29, 25);
             lblT2.TabIndex = 19;
             lblT2.Text = "2";
             lblT2.TextAlign = ContentAlignment.MiddleCenter;
@@ -184,10 +187,10 @@
             lblT3.FlatStyle = FlatStyle.Flat;
             lblT3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT3.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT3.Location = new Point(22, 288);
-            lblT3.MinimumSize = new Size(33, 33);
+            lblT3.Location = new Point(19, 216);
+            lblT3.MinimumSize = new Size(29, 25);
             lblT3.Name = "lblT3";
-            lblT3.Size = new Size(33, 33);
+            lblT3.Size = new Size(29, 25);
             lblT3.TabIndex = 20;
             lblT3.Text = "3";
             lblT3.TextAlign = ContentAlignment.MiddleCenter;
@@ -199,10 +202,10 @@
             lblT4.FlatStyle = FlatStyle.Flat;
             lblT4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT4.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT4.Location = new Point(22, 327);
-            lblT4.MinimumSize = new Size(33, 33);
+            lblT4.Location = new Point(19, 245);
+            lblT4.MinimumSize = new Size(29, 25);
             lblT4.Name = "lblT4";
-            lblT4.Size = new Size(33, 33);
+            lblT4.Size = new Size(29, 25);
             lblT4.TabIndex = 21;
             lblT4.Text = "4";
             lblT4.TextAlign = ContentAlignment.MiddleCenter;
@@ -214,10 +217,10 @@
             lblT5.FlatStyle = FlatStyle.Flat;
             lblT5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT5.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT5.Location = new Point(22, 366);
-            lblT5.MinimumSize = new Size(33, 33);
+            lblT5.Location = new Point(19, 274);
+            lblT5.MinimumSize = new Size(29, 25);
             lblT5.Name = "lblT5";
-            lblT5.Size = new Size(33, 33);
+            lblT5.Size = new Size(29, 25);
             lblT5.TabIndex = 22;
             lblT5.Text = "5";
             lblT5.TextAlign = ContentAlignment.MiddleCenter;
@@ -231,10 +234,10 @@
             lblTL.ForeColor = Color.FromArgb(130, 100, 110);
             lblTL.ImageKey = "caveira-e-ossos.png";
             lblTL.ImageList = imgList;
-            lblTL.Location = new Point(22, 444);
-            lblTL.MinimumSize = new Size(33, 33);
+            lblTL.Location = new Point(19, 333);
+            lblTL.MinimumSize = new Size(29, 25);
             lblTL.Name = "lblTL";
-            lblTL.Size = new Size(33, 33);
+            lblTL.Size = new Size(29, 25);
             lblTL.TabIndex = 23;
             lblTL.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -252,15 +255,17 @@
             btnP1.Enabled = false;
             btnP1.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP1.FlatStyle = FlatStyle.Flat;
-            btnP1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP1.ImageKey = "cancelar.png";
             btnP1.ImageList = imgList;
-            btnP1.Location = new Point(61, 210);
-            btnP1.MaximumSize = new Size(335, 33);
-            btnP1.MinimumSize = new Size(32, 33);
+            btnP1.Location = new Point(53, 158);
+            btnP1.Margin = new Padding(3, 2, 3, 2);
+            btnP1.MaximumSize = new Size(293, 25);
+            btnP1.MinimumSize = new Size(29, 25);
             btnP1.Name = "btnP1";
-            btnP1.Size = new Size(32, 33);
+            btnP1.Size = new Size(29, 25);
             btnP1.TabIndex = 27;
+            btnP1.TextAlign = ContentAlignment.TopRight;
             btnP1.UseVisualStyleBackColor = false;
             // 
             // btnP2
@@ -269,15 +274,17 @@
             btnP2.Enabled = false;
             btnP2.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP2.FlatStyle = FlatStyle.Flat;
-            btnP2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP2.ImageKey = "cancelar.png";
             btnP2.ImageList = imgList;
-            btnP2.Location = new Point(61, 249);
-            btnP2.MaximumSize = new Size(335, 33);
-            btnP2.MinimumSize = new Size(32, 33);
+            btnP2.Location = new Point(53, 187);
+            btnP2.Margin = new Padding(3, 2, 3, 2);
+            btnP2.MaximumSize = new Size(293, 25);
+            btnP2.MinimumSize = new Size(29, 25);
             btnP2.Name = "btnP2";
-            btnP2.Size = new Size(32, 33);
+            btnP2.Size = new Size(29, 25);
             btnP2.TabIndex = 28;
+            btnP2.TextAlign = ContentAlignment.TopRight;
             btnP2.UseVisualStyleBackColor = false;
             // 
             // btnP3
@@ -286,15 +293,17 @@
             btnP3.Enabled = false;
             btnP3.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP3.FlatStyle = FlatStyle.Flat;
-            btnP3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP3.ImageKey = "cancelar.png";
             btnP3.ImageList = imgList;
-            btnP3.Location = new Point(61, 288);
-            btnP3.MaximumSize = new Size(335, 33);
-            btnP3.MinimumSize = new Size(32, 33);
+            btnP3.Location = new Point(53, 216);
+            btnP3.Margin = new Padding(3, 2, 3, 2);
+            btnP3.MaximumSize = new Size(293, 25);
+            btnP3.MinimumSize = new Size(29, 25);
             btnP3.Name = "btnP3";
-            btnP3.Size = new Size(32, 33);
+            btnP3.Size = new Size(29, 25);
             btnP3.TabIndex = 29;
+            btnP3.TextAlign = ContentAlignment.TopRight;
             btnP3.UseVisualStyleBackColor = false;
             // 
             // btnP4
@@ -303,15 +312,17 @@
             btnP4.Enabled = false;
             btnP4.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP4.FlatStyle = FlatStyle.Flat;
-            btnP4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP4.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP4.ImageKey = "cancelar.png";
             btnP4.ImageList = imgList;
-            btnP4.Location = new Point(61, 327);
-            btnP4.MaximumSize = new Size(335, 33);
-            btnP4.MinimumSize = new Size(32, 33);
+            btnP4.Location = new Point(53, 245);
+            btnP4.Margin = new Padding(3, 2, 3, 2);
+            btnP4.MaximumSize = new Size(293, 25);
+            btnP4.MinimumSize = new Size(29, 25);
             btnP4.Name = "btnP4";
-            btnP4.Size = new Size(32, 33);
+            btnP4.Size = new Size(29, 25);
             btnP4.TabIndex = 30;
+            btnP4.TextAlign = ContentAlignment.TopRight;
             btnP4.UseVisualStyleBackColor = false;
             // 
             // btnP5
@@ -320,33 +331,38 @@
             btnP5.Enabled = false;
             btnP5.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP5.FlatStyle = FlatStyle.Flat;
-            btnP5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP5.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP5.ImageKey = "cancelar.png";
             btnP5.ImageList = imgList;
-            btnP5.Location = new Point(61, 366);
-            btnP5.MaximumSize = new Size(335, 33);
-            btnP5.MinimumSize = new Size(32, 33);
+            btnP5.Location = new Point(53, 274);
+            btnP5.Margin = new Padding(3, 2, 3, 2);
+            btnP5.MaximumSize = new Size(293, 25);
+            btnP5.MinimumSize = new Size(29, 25);
             btnP5.Name = "btnP5";
-            btnP5.Size = new Size(32, 33);
+            btnP5.Size = new Size(29, 25);
             btnP5.TabIndex = 31;
+            btnP5.TextAlign = ContentAlignment.TopRight;
             btnP5.UseVisualStyleBackColor = false;
             // 
-            // btnPL
+            // btnP7
             // 
-            btnPL.BackColor = Color.MistyRose;
-            btnPL.Enabled = false;
-            btnPL.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
-            btnPL.FlatStyle = FlatStyle.Flat;
-            btnPL.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPL.ImageKey = "cancelar.png";
-            btnPL.ImageList = imgList;
-            btnPL.Location = new Point(61, 444);
-            btnPL.MaximumSize = new Size(335, 33);
-            btnPL.MinimumSize = new Size(32, 33);
-            btnPL.Name = "btnPL";
-            btnPL.Size = new Size(32, 33);
-            btnPL.TabIndex = 32;
-            btnPL.UseVisualStyleBackColor = false;
+            btnP7.BackColor = Color.MistyRose;
+            btnP7.Enabled = false;
+            btnP7.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
+            btnP7.FlatStyle = FlatStyle.Flat;
+            btnP7.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnP7.ImageKey = "cancelar.png";
+            btnP7.ImageList = imgList;
+            btnP7.Location = new Point(53, 333);
+            btnP7.Margin = new Padding(3, 2, 3, 2);
+            btnP7.MaximumSize = new Size(293, 25);
+            btnP7.MinimumSize = new Size(29, 25);
+            btnP7.Name = "btnP7";
+            btnP7.Size = new Size(29, 25);
+            btnP7.TabIndex = 32;
+            btnP7.Tag = "";
+            btnP7.TextAlign = ContentAlignment.TopRight;
+            btnP7.UseVisualStyleBackColor = false;
             // 
             // btnP6
             // 
@@ -354,15 +370,17 @@
             btnP6.Enabled = false;
             btnP6.FlatAppearance.BorderColor = Color.FromArgb(130, 100, 110);
             btnP6.FlatStyle = FlatStyle.Flat;
-            btnP6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnP6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnP6.ImageKey = "cancelar.png";
             btnP6.ImageList = imgList;
-            btnP6.Location = new Point(61, 405);
-            btnP6.MaximumSize = new Size(335, 33);
-            btnP6.MinimumSize = new Size(32, 33);
+            btnP6.Location = new Point(53, 304);
+            btnP6.Margin = new Padding(3, 2, 3, 2);
+            btnP6.MaximumSize = new Size(293, 25);
+            btnP6.MinimumSize = new Size(29, 25);
             btnP6.Name = "btnP6";
-            btnP6.Size = new Size(32, 33);
+            btnP6.Size = new Size(29, 25);
             btnP6.TabIndex = 34;
+            btnP6.TextAlign = ContentAlignment.TopRight;
             btnP6.UseVisualStyleBackColor = false;
             // 
             // lblT6
@@ -372,23 +390,23 @@
             lblT6.FlatStyle = FlatStyle.Flat;
             lblT6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblT6.ForeColor = Color.FromArgb(130, 100, 110);
-            lblT6.Location = new Point(22, 405);
-            lblT6.MinimumSize = new Size(33, 33);
+            lblT6.Location = new Point(19, 304);
+            lblT6.MinimumSize = new Size(29, 25);
             lblT6.Name = "lblT6";
-            lblT6.Size = new Size(33, 33);
+            lblT6.Size = new Size(29, 25);
             lblT6.TabIndex = 33;
             lblT6.Text = "6";
             lblT6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // PlacarApp
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaShell;
-            ClientSize = new Size(420, 496);
+            ClientSize = new Size(368, 372);
             Controls.Add(btnP6);
             Controls.Add(lblT6);
-            Controls.Add(btnPL);
+            Controls.Add(btnP7);
             Controls.Add(btnP5);
             Controls.Add(btnP4);
             Controls.Add(btnP3);
@@ -407,6 +425,7 @@
             Controls.Add(lblVictories);
             Controls.Add(lblGames);
             Controls.Add(lblPlacar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PlacarApp";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Placar - IFSP";
@@ -435,7 +454,7 @@
         private Button btnP3;
         private Button btnP4;
         private Button btnP5;
-        private Button btnPL;
+        private Button btnP7;
         private Button btnP6;
         private Label lblT6;
     }

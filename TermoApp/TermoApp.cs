@@ -106,16 +106,16 @@ namespace TermoApp
                 MessageBox.Show("A palavra precisa ter 5 letras", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            termo.ChecaPalavra(palavra);
             if (termo.validaPalavra(palavra) == false)
             {
                 MessageBox.Show("Palavra Inválida!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+            termo.ChecaPalavra(palavra);
+
             if (termo.JogoFinalizado)
             {
-                placarapp.Victory(termo.palavraAtual);
+                placarapp.Victory(termo.palavraAtual-1);
                 AtualizaTabuleiro();
                 win.Play();
                 MessageBox.Show("Parabéns, palavra correta!", "Jogo termo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -181,7 +181,6 @@ namespace TermoApp
                 //MessageBox.Show("Letra = " + letra.Caracter + "\nCor = " + letra.Cor);
                 if (letra.Cor == 'A')
                 {
-
                     botaoTab.BackColor = Color.FromArgb(255, 252, 218);
                     botaoKey.BackColor = Color.FromArgb(255, 252, 218);
                 }
@@ -298,7 +297,6 @@ namespace TermoApp
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            placarapp.AtualizaPlacar();
             MessageBox.Show("games = " + placar.games.ToString());
             //placarapp.AtualizaPlacar();
             int col, lin;

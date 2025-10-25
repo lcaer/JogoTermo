@@ -20,7 +20,6 @@ namespace TermoApp
             placar = new Placar();
             placarapp = new PlacarApp();
             DisableButton();
-            MessageBox.Show(termo.palavraSorteada);
             btn11.BackColor = Color.FromArgb(252, 215, 194);
             this.KeyPreview = true;
             this.AcceptButton = btnEnter;
@@ -194,7 +193,6 @@ namespace TermoApp
                     botaoTab.BackColor = Color.LightGray;
                     botaoKey.BackColor = Color.LightGray;
                 }
-                //MessageBox.Show("Tab = " + botaoTab.BackColor + "\nKey = " + botaoKey.BackColor);
             }
         }
 
@@ -297,8 +295,7 @@ namespace TermoApp
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("games = " + placar.games.ToString());
-            //placarapp.AtualizaPlacar();
+            
             int col, lin;
             for (lin = termo.palavraAtual; termo.palavraAtual != 1; termo.palavraAtual--)
             {
@@ -317,7 +314,6 @@ namespace TermoApp
             termo.tabuleiro.Clear();
             termo.teclado.Clear();
             DisableButton();
-            //MessageBox.Show(termo.palavraSorteada);
             termo.JogoFinalizado = false;
             coluna = 1;
         }

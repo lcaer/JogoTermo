@@ -13,10 +13,6 @@ namespace TermoApp
             InitializeComponent();
             placar = new Placar();
             termo = new Termo();
-            
-            
-            //MessageBox.Show("games = " + placar.games.ToString());
-            //MessageBox.Show("btn games = " + btnGames.Text);
         }
         private Button RetornaBotao(string name)
         {
@@ -27,7 +23,6 @@ namespace TermoApp
         {
             String buttonPlacarname;
             Button buttonPlacar;
-            MessageBox.Show("games = " + placar.games.ToString());
             btnGames.Text = placar.games.ToString();
             btnVictories.Text = placar.victories.ToString();
             btnStreak.Text = placar.streak.ToString();
